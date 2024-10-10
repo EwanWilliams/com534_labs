@@ -3,10 +3,11 @@ fun main() {
 
     while (true) {
         println()
-        println("1. Add a student")
-        println("2. Search for student by ID")
-        println("3. Search for student by name")
-        println("4. Quit")
+        println("1. Add a undergradute student")
+        println("2. Add a masters student")
+        println("3. Search for student by ID")
+        println("4. Search for student by name")
+        println("5. Quit")
         print("select an option: ")
         val menuInput = readln()
 
@@ -20,7 +21,16 @@ fun main() {
                 val course = readln()
                 solent.enrolStudent(Undergraduate(id, name, course))
             }
-            "2" -> { // search by id
+            "2" -> {
+                print("Enter ID: ")
+                val id = readln()
+                print("Enter name: ")
+                val name = readln()
+                print("Enter course: ")
+                val course = readln()
+                solent.enrolStudent(Masters(id, name, course))
+            }
+            "3" -> { // search by id
                 print("Enter ID: ")
                 val queryId = readln()
                 val studentFound = solent.findStudentById(queryId)
@@ -30,7 +40,7 @@ fun main() {
                     println("No student found with ID '$queryId'")
                 }
             }
-            "3" -> { // search by name
+            "4" -> { // search by name
                 print("Enter name: ")
                 val queryName = readln()
                 val studentsFound = solent.findStudentsByName(queryName)
@@ -42,7 +52,7 @@ fun main() {
                     println("No students found called '$queryName'")
                 }
             }
-            "4" -> break
+            "5" -> break
         }
     }
 }
