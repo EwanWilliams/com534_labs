@@ -24,4 +24,11 @@ class University {
         return studentsWithName
     }
 
+    fun findStudentsPassed() : List<Student> {
+        val passmark = 40
+
+        var studentsPassed = students.filter { it.mark < passmark }
+        return studentsPassed
+    }
+
 }
